@@ -14,10 +14,16 @@ function App() {
 
   const [resultData, setResultData] = useState(null)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e.target[0].value);
-   };
+    const handleSubmit = (event) => {
+
+        event.preventDefault()
+        fetch('/getProcess', {
+          method: 'POST',
+          body:JSON.stringify({ processo: event.target[0].value }),
+        })
+          .then((res) => res.json())
+          .then(setResultData)
+    }
 
   return (
     <div className="App">
