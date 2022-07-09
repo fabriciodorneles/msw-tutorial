@@ -3,8 +3,7 @@ import { rest } from 'msw'
 
 export const handlers = [
   rest.post('/getProcess', (req, res, ctx) => {
-    const { processo } = req.body;
-    console.log('==> ', req);
+    const { processo } = JSON.parse(req.body);
     return res(
       ctx.status(200),
       ctx.json({
