@@ -2,8 +2,8 @@
 import { rest } from 'msw'
 
 export const handlers = [
-  rest.post('/getProcess', (req, res, ctx) => {
-    const { processo } = JSON.parse(req.body);
+  rest.get('/getProcess', (req, res, ctx) => {
+    const processo = req.url.searchParams.get('processo');
     return res(
       ctx.status(200),
       ctx.json({

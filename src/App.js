@@ -7,9 +7,9 @@ function App() {
     const handleSubmit = (event) => {
       const {numero_processo} = event.target.elements;
       event.preventDefault()
-      fetch('/getProcess', {
-        method: 'POST',
-        body:JSON.stringify({ processo: numero_processo.value }),
+      console.log('maeee');
+      fetch(`/getProcess/?processo=${numero_processo.value}`, {
+        method: 'GET',
       })
         .then((res) => res.json())
         .then(setResultData)
