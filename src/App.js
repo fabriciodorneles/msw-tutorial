@@ -7,7 +7,6 @@ function App() {
     const handleSubmit = (event) => {
       const {numero_processo} = event.target.elements;
       event.preventDefault()
-      console.log('maeee');
       fetch(`/getProcess/?processo=${numero_processo.value}`, {
         method: 'GET',
       })
